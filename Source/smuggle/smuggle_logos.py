@@ -23,15 +23,13 @@ def encode_image(path: str) -> str:
     return f'data:{mime};base64,{data}'
 
 
-# Height hints for custom logo images (pixels)
+
 LOGO_HEIGHT = {'1': 23, '2': 30, '3': 20, '4': 44, '5': 20, '6': 24}
 
 
-# Official brand SVG logos — paths from Simple Icons v11.14.0
-# Microsoft 4-color logo: derived from the official SI path (viewBox 0 0 24 24)
-# The SI path draws 4 rects, here split with official Fluent colors.
+
 DEFAULT_LOGOS = {
-    # Microsoft — 4-color squares (official Fluent Design colors)
+    
     '1': (
         '<svg width="23" height="23" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<rect x="0" y="0" width="11.408" height="11.408" fill="#f25022"/>'
@@ -41,7 +39,7 @@ DEFAULT_LOGOS = {
         '</svg>'
     ),
 
-    # DocuSign — official SI path (arrow + line mark), #FFCC22 on white bg
+    
     '2': (
         '<svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<path d="M9.517 3.31h4.966v6.621h3.31L12 16.552 6.207 9.931h3.31V3.31z'
@@ -49,7 +47,7 @@ DEFAULT_LOGOS = {
         '</svg>'
     ),
 
-    # SharePoint — official SI path, #0078D4
+    
     '3': (
         '<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<path d="M24 13.5q0 1.242-.475 2.332-.474 1.09-1.289 1.904-.814.815-1.904'
@@ -85,7 +83,7 @@ DEFAULT_LOGOS = {
         '</svg>'
     ),
 
-    # OneDrive — official SI path, #0078D4
+    
     '4': (
         '<svg width="52" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<path d="M19.453 9.95q.961.058 1.787.468.826.41 1.442 1.066.615.657.966'
@@ -108,7 +106,7 @@ DEFAULT_LOGOS = {
         '</svg>'
     ),
 
-    # Azure — official SI path, #0078D4
+    
     '5': (
         '<svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<path d="M22.379 23.343a1.62 1.62 0 0 0 1.536-2.14v.002L17.35 1.76A1.62'
@@ -121,7 +119,7 @@ DEFAULT_LOGOS = {
         '</svg>'
     ),
 
-    # LinkedIn — official SI path, #0A66C2
+    
     '6': (
         '<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">'
         '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853'
