@@ -30,7 +30,7 @@ import os
 import sys
 import argparse
 
-# Re-export core public API for backward compatibility and test imports
+
 from smuggle_logos import DEFAULT_LOGOS, LOGO_HEIGHT, encode_image
 from smuggle_templates import TEMPLATES, METHODS, DEFAULT_OUTPUT, STYLES
 from smuggle_engine import (
