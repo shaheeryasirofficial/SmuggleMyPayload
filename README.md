@@ -56,7 +56,6 @@ No other dependencies. Python 3.8+.
 ```
 smuggle_backend.py          # Core engine  templates, obfuscation, build logic, all feature functions
 smugglemypayload.py         # Interactive CLI and argparse interface
-test_smugglemypayload.py    # 105 tests covering all features
 ```
 
 ---
@@ -197,16 +196,6 @@ Any mismatch replaces the page body with a generic "Page Not Available" message.
 
 ---
 
-## Running Tests
-
-```bash
-python3 -m pytest test_smugglemypayload.py -v
-```
-
-105 tests covering: obfuscation engine, XOR encoding, chunk shuffling, adaptive sizing, all 12 templates (both delivery methods), payload integrity roundtrip, fragment key encryption, dark mode, countdown timers, environment keying, file size spoofing, multi-file display, preview mode, email wrapper, QR code generation, and module imports.
-
----
-
 ## Legal
 
-This tool is intended for authorized red team operations and security testing only. Unauthorized use against systems you do not own or have explicit permission to test is illegal. You are responsible for ensuring compliance with applicable laws and engagement rules.
+This tool is intended for security testing only. Unauthorized use against systems you do not own or have explicit permission to test is illegal. You are responsible for ensuring compliance with applicable laws and engagement rules.
