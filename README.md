@@ -13,8 +13,6 @@ Developed by **Maverick**
 3. Junk code, decoy DOM elements, and randomized variable names are injected to defeat static analysis.
 4. When the target opens the HTML file (via email, link, or QR code), JavaScript reassembles and decodes the payload in-browser, then triggers a download  the binary never touches the network as a file transfer.
 
-This bypasses email gateways, web proxies, and network-level file inspection that look for known file signatures in transit.
-
 ---
 
 ## Features
