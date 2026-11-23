@@ -1,5 +1,4 @@
 # SmuggleMyPayload
-![Preview](Source/tool.png)
 HTML smuggling tool for red team initial access operations. Generates pixel-perfect lure pages that embed a payload inside the HTML and deliver it client-side via JavaScript  no server-side hosting of the binary required.
 
 Developed by **Maverick**
